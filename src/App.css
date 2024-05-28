@@ -39,3 +39,21 @@
     transform: rotate(360deg);
   }
 }
+@keyframes checkbox-checked {
+  0% {
+    background-color: transparent;
+    border-color: #d1d5db; /* Tailwind's gray-300 */
+  }
+  50% {
+    background-color: #60a5fa; /* Tailwind's blue-400 */
+    border-color: #60a5fa; /* Tailwind's blue-400 */
+  }
+  100% {
+    background-color: #3b82f6; /* Tailwind's blue-500 */
+    border-color: #3b82f6; /* Tailwind's blue-500 */
+  }
+}
+
+.checkbox-animate {
+  animation: checkbox-checked 0.3s ease-in-out forwards;
+}
