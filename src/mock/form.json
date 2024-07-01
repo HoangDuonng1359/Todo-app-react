@@ -1,0 +1,27 @@
+{
+    "formTitle": "form demo",
+    "formUrl": "/demo",
+    "formDescription": "You need to create an article to publish it.",
+    "content": {
+        "type": "FORM",
+        "widgets": [
+            {
+                "name": "title",
+                "type": "INPUT",
+                "label": "Post title",
+                "customProps": {
+                    "placeHolder": "Enter Post Title"
+                }
+            },
+            {
+                "name": "select",
+                "type": "SELECT",
+                "properties": [
+                    {
+                        "options": []
+                    }
+                ]
+            }
+        ]
+    }
+}
