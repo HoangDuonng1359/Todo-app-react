@@ -9,11 +9,12 @@ import { Home } from './pages/Home';
 import Test from './builder/form/test';
 import axios from 'axios';
 import { GenerateForm } from './builder/form/genereate';
+import { URL_REQUEST } from './api/urlAPI';
 function App() {
   const [FormJson, setFormJson] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/form')
+    axios.get(URL_REQUEST.GET_FORM)
       .then(function (response) {
         setFormJson(response.data);
         //console.log(FormJson);

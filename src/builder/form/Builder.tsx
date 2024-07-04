@@ -6,6 +6,7 @@ import NavigationBar from "../../Component/Navigation";
 import { useForm } from "react-hook-form";
 import { GenerateForm } from "./genereate";
 import axios from 'axios';
+import { URL_REQUEST } from "../../api/urlAPI";
 export interface widget {
     name: string;
     type: string;
@@ -55,7 +56,7 @@ export const FormBuilder = () => {
     const createFormJson = () => {
         const FormJson : form = {title: formTitle , url : formUrl , widgets : JSON.stringify(widgets)};
         console.log(FormJson);
-        axios.post("http://localhost:8080/api/form",
+        axios.post(URL_REQUEST.POST_FORM,
             FormJson
         )
         .then(function (response) {
