@@ -95,11 +95,7 @@ export const TodoComponent = (_props: any) => {
                                         </Select>
 
                                         {/* Cách sử dụng Select với 1 mảng với object với key và label - pripriorityOptions */}
-                                        <Select
-                                            value={priority}
-                                            options={pripriorityOptions}
-                                            onChange={(value) => setPriority(value)}
-                                        />
+                                        
                                     </div>
                                     <div className="flex-col w-full">
                                         <Button className="m-2" onClick={handleClosePopUp}>Close</Button>

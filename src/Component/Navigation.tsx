@@ -1,0 +1,47 @@
+import React, { useState } from 'react';
+import { AppstoreOutlined, HomeOutlined, MailOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
+
+type MenuItem = Required<MenuProps>['items'][number];
+
+const items: MenuItem[] = [
+    {
+        label: (<a href='http://localhost:3000/'>Home</a>),
+        key: 'home',
+        icon: <HomeOutlined />,
+    },
+    {
+        label: 'Admin',
+        key: 'admin',
+        icon: <UserOutlined />,
+        children: [
+            {
+                type: 'group',
+                label: 'Builder',
+                children: [
+                    {
+                        label: (
+                            <a href='http://localhost:3000/form-builder'>
+                                Form Builder</a>)
+                        , key: 'form-builder'
+                    },
+                    { label: 'Page Builder', key: 'page-builder' },
+                ],
+            },
+        ],
+    },
+];
+
+const NavigationBar: React.FC = () => {
+    const [current, setCurrent] = useState('mail');
+
+    const onClick: MenuProps['onClick'] = (e) => {
+        console.log('click ', e);
+        setCurrent(e.key);
+    };
+
+    return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+};
+
+export default NavigationBar;
