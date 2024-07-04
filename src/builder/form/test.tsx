@@ -1,23 +1,14 @@
 import { Button } from 'antd';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import { form } from './Builder';
+import {GenerateForm } from './genereate';
+const FormJson = '{"title":"Form title","url":"/hello","widgets":[{"name":"text1","type":"text"},{"name":"text2","type":"select","options":"one;two"},{"name":"text3","type":"select","options":"one;two"},{"name":"text4","type":"text","placeholder":"test"},{"name":"text5","type":"text","placeholder":""},{"name":"text6","type":"select","options":"one","placeholder":""}]}'
+const Form : form = JSON.parse(FormJson);
 export default function Test() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = (data: any) => console.log(data);
-//   console.log(errors);
-  
-  return (
-    <form  onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="hello" {...register("hello", {})} />
-      <input type="text" placeholder="hduo" {...register("hduo" , {})} />
-      <select {...register("kk")}>
-        <option value="none ">none </option>
-        <option value=" hello "> hello </option>
-        <option value=" 1 "> 1 </option>
-        <option value=" 2"> 2</option>
-      </select>
-      <button type="submit">submit</button>
-    </form>
-  );
+    return(
+        <div>
+            <GenerateForm title={Form.title} url={Form.url} widgets={Form.widgets}></GenerateForm>
+        </div>
+    )
 }
