@@ -32,7 +32,7 @@ export const ToDoApp = () => {
         setNote("");
     };
 
-    const handeOnDelete = (noteId: number) => {
+    const handleOnDelete = (noteId: number) => {
         const tmp = listNote.filter((a: any) => a.id !== noteId);
         setListNote(tmp);
     };
@@ -90,7 +90,7 @@ export const ToDoApp = () => {
                                         <Button
                                             size="small"
                                             danger
-                                            onClick={() => handeOnDelete(a.id)}
+                                            onClick={() => handleOnDelete(a.id)}
                                         >
                                             Delete
                                         </Button>

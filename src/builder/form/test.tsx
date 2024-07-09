@@ -7,8 +7,6 @@ const FormJson = '{"title":"Form title","url":"/hello","widgets":[{"name":"text1
 const Form : form = JSON.parse(FormJson);
 export default function Test() {
     return(
-        <div>
-            <GenerateForm title={Form.title} url={Form.url} widgets={Form.widgets}></GenerateForm>
-        </div>
+        <GenerateForm title={Form.title} url={Form.url} widgets={Form.widgets}></GenerateForm>
     )
 }

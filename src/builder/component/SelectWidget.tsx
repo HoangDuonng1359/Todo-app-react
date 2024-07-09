@@ -1,32 +1,27 @@
-import { Select,  } from "antd"
-import { useState } from "react";
-const handleChange = (value: any) => {
-    return (`selected ${value}`);
-};
+import { FieldValues, UseFormHandleSubmit, UseFormRegister } from "react-hook-form"
 
-export interface OptionType {
-    value: string;
-    label: string;
+interface SelectProps{
+    widget : any
+    register: UseFormRegister<FieldValues> 
+    handleSubmit : UseFormHandleSubmit<FieldValues, undefined>
 }
 
-export interface SelectSetting {
-    options: OptionType[];
-    defaultValue?: "";
-    value : any;
-    onchange?: any;
-}
-
-export const SelectWidget = (props : SelectSetting) => {
-    return (
-        <div className="p-2 w-full h-8">
-            <Select defaultValue={"select"} onChange={handleChange}>
-                { props.options.map(option => (
-                    <Select key={option.value} value={option.value}>
-                        {option.label}
-                    </Select>
-                ))}
-            </Select>
+export const SelectWidget = (props : SelectProps) =>{
+    const {widget , register , handleSubmit} = props;
+    return ( 
+        <div className="p-2">
+            <div>{widget.name}</div>
+            <select  {...register(widget.type)}
+                className="w-full rounded-md border-2 p-1 border-blue-400 focus:outline-none">
+                {
+                    widget.options?.split(";").map((option: string) => {
+                        return (
+                            <option value={option}
+                                className="p-1">{option}</option>
+                        )
+                    })
+                }
+            </select>
         </div>
-
-    )
+        )
 }

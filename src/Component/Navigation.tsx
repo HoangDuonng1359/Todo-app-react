@@ -7,7 +7,7 @@ type MenuItem = Required<MenuProps>['items'][number];
 
 const items: MenuItem[] = [
     {
-        label: (<a href='http://localhost:3000/'>Home</a>),
+        label: (<a href='/'>Home</a>),
         key: 'home',
         icon: <HomeOutlined />,
     },
@@ -22,7 +22,7 @@ const items: MenuItem[] = [
                 children: [
                     {
                         label: (
-                            <a href='http://localhost:3000/form-builder'>
+                            <a href='/form-builder'>
                                 Form Builder</a>)
                         , key: 'form-builder'
                     },
