@@ -8,13 +8,18 @@ import { SelectWidget } from "../component/SelectWidget";
 
 export const GenerateForm = (Form: form) => {
     const {register: genRegister, handleSubmit: genHandle, formState: { errors: err } } = useForm();
-    const onGenHandle = (data: any) => {
-        console.log(data);
-    }
+    // const onGenHandle = (data: any) => {
+    //     console.log(data);
+    // }
+        const onGenHandle = (data: any) => {
+            console.log(data);
+            if(Form.onSubmit!=undefined){
+                Form.onSubmit(data);
+            }
+        }
     const widgets = Form.widgets;
     return (
         <div>
-            <NavigationBar></NavigationBar>
             <div className="w-full h-screen bg-gray-100 flex items-center justify-center">
                 <div></div>
                 <div className="flex flex-col w-96 h-full ">
@@ -34,7 +39,7 @@ export const GenerateForm = (Form: form) => {
                                     return <>Component does not exist</>;
 
                             }
-                            return <T register={genRegister} handleSubmit={genHandle} widget={widget} ></T>
+                            return <T register={genRegister} handleSubmit={genHandle} widget={widget} key={index}></T>
                         })}
                         <div className="flex justify-center items-center h-10">
                             <Button htmlType="submit"

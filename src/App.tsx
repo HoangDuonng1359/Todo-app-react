@@ -8,8 +8,9 @@ import { FormBuilder, form } from './builder/form/Builder';
 import { Home } from './pages/Home';
 import Test from './builder/form/test';
 import axios from 'axios';
-import { GenerateForm } from './builder/form/genereate';
+import { GenerateForm } from './builder/form/generate';
 import { URL_REQUEST } from './api/urlAPI';
+import {StudentManagement} from './pages/student_management'
 function App() {
   const [FormJson, setFormJson] = useState([]);
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/todoApp" element={<TodoComponent></TodoComponent>}></Route>
           <Route path="/form-builder" element={<FormBuilder />}></Route>
           <Route path='/test' element={<Test></Test>}></Route>
+          <Route path='/qlsv' element={<StudentManagement/>}></Route>
           {FormJson?.map((Form: form) => {
             //console.log(Form.widgets)
             return (
