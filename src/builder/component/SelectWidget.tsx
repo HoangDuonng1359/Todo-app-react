@@ -11,12 +11,12 @@ export const SelectWidget = (props : SelectProps) =>{
     return ( 
         <div className="p-2">
             <div>{widget.name}</div>
-            <select  {...register(widget.type)}
+            <select  {...register(widget.name)}
                 className="w-full rounded-md border-2 p-1 border-blue-400 focus:outline-none">
                 {
-                    widget.options?.split(";").map((option: string) => {
+                    widget.options?.split(";").map((option: string , index :any) => {
                         return (
-                            <option value={option}
+                            <option key={index} value={option}
                                 className="p-1">{option}</option>
                         )
                     })
