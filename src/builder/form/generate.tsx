@@ -13,7 +13,7 @@ export const GenerateForm = (Form: form) => {
     // }
         const onGenHandle = (data: any) => {
             console.log(data);
-            if(Form.onSubmit!=undefined){
+            if(Form.onSubmit!==undefined){
                 Form.onSubmit(data);
             }
         }
@@ -23,7 +23,7 @@ export const GenerateForm = (Form: form) => {
             <div className="w-full h-screen bg-gray-100 flex items-center justify-center">
                 <div></div>
                 <div className="flex flex-col w-96 h-full ">
-                    <div className="mt-10 w-full h-10 text-center text-3xl">{Form.title}</div>
+                    <div className="mt-10 w-full h-10 text-3xl">{Form.title}</div>
                     <form onSubmit={genHandle(onGenHandle)}>
                         {widgets.map((widget: widget, index: any) => {
                             let T ;

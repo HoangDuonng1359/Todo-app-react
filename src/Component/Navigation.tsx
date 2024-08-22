@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppstoreOutlined, ContactsOutlined, HomeOutlined, MailOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { ContactsOutlined, HomeOutlined,  UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 
@@ -14,6 +14,11 @@ const items: MenuItem[] = [
     {
         label:(<a href='/qlsv'>Quản lý sinh viên</a>),
         key:'qlsv',
+        icon:<ContactsOutlined />
+    },
+    {
+        label:(<a href='/timekeeping'>Chấm công</a>),
+        key:'timekeeping',
         icon:<ContactsOutlined />
     },
     {

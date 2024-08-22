@@ -11,39 +11,23 @@ import axios from 'axios';
 import { GenerateForm } from './builder/form/generate';
 import { URL_REQUEST } from './api/urlAPI';
 import {StudentManagement} from './pages/student_management'
+import { TimekeepingPage } from './pages/timekeepingPage';
+import NavigationBar from './Component/Navigation';
 function App() {
-  const [FormJson, setFormJson] = useState([]);
-
-  useEffect(() => {
-    axios.get(URL_REQUEST.GET_FORM)
-      .then(function (response) {
-        setFormJson(response.data);
-        //console.log(FormJson);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }, []);
   return (
     <div className="application">
       <Helmet>
         <title>App</title>
       </Helmet>
-
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home FormJson={FormJson} setFormJson={setFormJson}></Home>}></Route>
+        <Route path="/" element={<Home/>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/todoApp" element={<TodoComponent></TodoComponent>}></Route>
           <Route path="/form-builder" element={<FormBuilder />}></Route>
+          <Route path="/timekeeping" element={<TimekeepingPage/>} />
           <Route path='/test' element={<Test></Test>}></Route>
           <Route path='/qlsv' element={<StudentManagement/>}></Route>
-          {FormJson?.map((Form: form) => {
-            //console.log(Form.widgets)
-            return (
-              <Route path={Form.url} element={<GenerateForm title={Form.title} url={Form.url} widgets={JSON.parse(Form.widgets)} ></GenerateForm>} ></Route>
-            )
-          })}
         </Routes>
       </BrowserRouter>
     </div>
