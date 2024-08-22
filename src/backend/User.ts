@@ -6,4 +6,5 @@ export interface User {
     Name: string;
     gender: string;
     phoneNumber: string;
+    countUser? : number;
 }

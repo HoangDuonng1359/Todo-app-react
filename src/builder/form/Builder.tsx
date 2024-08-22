@@ -39,7 +39,7 @@ export const FormBuilder = () => {
             console.log("Duplicate extension name");
             return;
         }
-        if (data.type == WidgetTypes.TEXT) {
+        if (data.type === WidgetTypes.TEXT) {
             data.options = undefined;
         }
         handleAddNewWidget({
