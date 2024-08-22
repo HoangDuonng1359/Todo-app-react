@@ -13,7 +13,7 @@
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.17.3",
-    "axios": "^1.7.4",
+    "axios": "^0.27.2",
     "enum": "^3.0.4",
     "firebase": "^10.12.3",
     "ollama": "^0.5.2",
